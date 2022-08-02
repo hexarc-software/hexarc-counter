@@ -3,7 +3,6 @@ mod model;
 
 use std::env;
 use actix_web::{App, HttpServer};
-use endpoint::{ping, point};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -12,8 +11,12 @@ async fn main() -> std::io::Result<()> {
         .parse()
         .expect("PORT must be a number");
 
-    HttpServer::new(|| App::new().service(ping).service(point))
-        .bind(("0.0.0.0", port))?
-        .run()
-        .await
+    HttpServer::new(|| {
+        App::new()
+            .service(endpoint::get_view_count)
+            .service(endpoint::inc_view_count)
+    })
+    .bind(("0.0.0.0", port))?
+    .run()
+    .await
 }

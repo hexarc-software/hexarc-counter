@@ -1,16 +1,19 @@
 use serde::Serialize;
 
 #[derive(Serialize)]
-pub struct Point {
-    x: f64,
-    y: f64,
+#[serde(rename_all = "camelCase")]
+pub struct Shield {
+    schema_version: i32,
+    label: String,
+    message: String,
 }
 
-impl Point {
-    pub fn new_random() -> Self {
+impl Shield {
+    pub fn new(label: String, message: String) -> Self {
         Self {
-            x: rand::random::<f64>(),
-            y: rand::random::<f64>(),
+            schema_version: 1,
+            label,
+            message,
         }
     }
 }
