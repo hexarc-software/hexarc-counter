@@ -1,19 +1,9 @@
-use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
-use std::env;
-
+mod endpoint;
 mod model;
-use model::Point;
 
-#[get("/ping")]
-async fn ping() -> impl Responder {
-    HttpResponse::Ok().body("pong")
-}
-
-#[get("/point")]
-async fn point() -> impl Responder {
-    let point = Point::new_random();
-    web::Json(point)
-}
+use actix_web::{App, HttpServer};
+use endpoint::{ping, point};
+use std::env;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
