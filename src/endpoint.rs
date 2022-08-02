@@ -1,5 +1,5 @@
 use actix_web::{get, web, Responder, HttpResponse};
-use actix_web::web::{Path, Query};
+use actix_web::web::Query;
 use serde::Deserialize;
 use crate::model::{Shield};
 
@@ -21,12 +21,12 @@ pub async fn get_view_count(query: Query<ViewParams>) -> impl Responder {
     web::Json(shield)
 }
 
-#[get("/tracker/{user}")]
-pub async fn inc_view_count(path: Path<String>) -> impl Responder {
+#[get("/tracker")]
+pub async fn inc_view_count(query: Query<String>) -> impl Responder {
     const PIXEL: &str = include_str!("pixel.svg");
     const SVG_MIME: &str = "image/svg+xml";
 
-    let user = path.into_inner();
+    let user = query.into_inner();
     println!("User: {}", user);
 
     HttpResponse::Ok().content_type(SVG_MIME).body(PIXEL)
