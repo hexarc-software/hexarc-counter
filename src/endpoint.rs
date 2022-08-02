@@ -1,5 +1,5 @@
-use crate::model::Point;
 use actix_web::{get, web, HttpResponse, Responder};
+use crate::model::Point;
 
 #[get("/ping")]
 pub async fn ping() -> impl Responder {

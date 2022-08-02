@@ -1,9 +1,9 @@
 mod endpoint;
 mod model;
 
+use std::env;
 use actix_web::{App, HttpServer};
 use endpoint::{ping, point};
-use std::env;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
