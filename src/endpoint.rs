@@ -1,7 +1,7 @@
-use actix_web::{get, web, Responder, HttpResponse};
-use actix_web::web::Query;
+use actix_web::{get, Responder, HttpResponse};
+use actix_web::web::{Json, Query};
 use serde::Deserialize;
-use crate::model::{Shield};
+use crate::model::Shield;
 
 #[derive(Deserialize)]
 pub struct ViewParams {
@@ -10,7 +10,7 @@ pub struct ViewParams {
 }
 
 #[get("/views")]
-pub async fn get_view_count(query: Query<ViewParams>) -> impl Responder {
+pub async fn get_view_count(query: Query<ViewParams>) -> Json<Shield> {
     let ViewParams { user, label } = query.into_inner();
     println!("{}", user);
 
@@ -18,7 +18,7 @@ pub async fn get_view_count(query: Query<ViewParams>) -> impl Responder {
     let message = String::from("0");
     let shield = Shield::new(label, message);
 
-    web::Json(shield)
+    Json(shield)
 }
 
 #[get("/tracker")]
