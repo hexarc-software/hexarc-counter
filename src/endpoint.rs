@@ -27,7 +27,6 @@ impl Shield {
 pub struct ViewParams {
     name: String,
     label: Option<String>,
-    accounted: Option<bool>,
 }
 
 #[derive(Deserialize)]
@@ -37,17 +36,9 @@ pub struct AddViewParams {
 
 #[get("/views")]
 pub async fn get_view_count(app_state: Data<AppState>, query: Query<ViewParams>) -> impl Responder {
-    let ViewParams {
-        name,
-        label,
-        accounted,
-    } = query.into_inner();
+    let ViewParams { name, label } = query.into_inner();
     if name.is_empty() {
         return HttpResponse::BadRequest().finish();
-    }
-
-    if accounted.unwrap_or(false) {
-        let _ = app_state.view_service.add_view(name.as_str()).await;
     }
 
     match app_state.view_service.get_view_count(name.as_str()).await {
