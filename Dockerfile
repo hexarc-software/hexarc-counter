@@ -1,24 +1,26 @@
 # Build app
 FROM rust:slim-bullseye AS builder
 
-RUN USER=root cargo new --bin hexarc-badger
-WORKDIR /hexarc-badger
+RUN USER=root cargo new --bin hexarc-tracker
+WORKDIR /hexarc-tracker
 
 COPY ./Cargo.lock ./Cargo.lock
 COPY ./Cargo.toml ./Cargo.toml
 
+# Build and cache dependencies
 RUN cargo build --release
+
+# Cleanup temp files
 RUN rm src/*.rs
+RUN rm ./target/release/deps/hexarc_tracker*
 
+# Build app
 COPY ./src ./src
-
-# Rust coverts "-" to "_"
-RUN rm ./target/release/deps/hexarc_badger*
 RUN cargo build --release
 
 # Pack app
 FROM debian:bullseye-slim
-WORKDIR /
+WORKDIR /app
 
-COPY --from=builder ./hexarc-badger/target/release/hexarc-badger .
-CMD ["./hexarc-badger"]
+COPY --from=builder ./hexarc-tracker/target/release/hexarc-tracker .
+CMD PORT=$PORT ./hexarc-tracker

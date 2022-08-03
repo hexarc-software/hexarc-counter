@@ -1,5 +1,5 @@
 [package]
-name = "hexarc-badger"
+name = "hexarc-tracker"
 version = "0.1.0"
 edition = "2021"
 authors = ["Max Koverdyaev <shadeglare@gmail.com>"]
