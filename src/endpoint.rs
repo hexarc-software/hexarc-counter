@@ -9,7 +9,7 @@ pub struct Shield {
     schema_version: i32,
     label: String,
     message: String,
-    cache_seconds: Option<u32>
+    cache_seconds: Option<u32>,
 }
 
 impl Shield {
@@ -18,7 +18,7 @@ impl Shield {
             schema_version: 1,
             label,
             message,
-            cache_seconds: Some(0u32)
+            cache_seconds: Some(300),
         }
     }
 }
@@ -37,7 +37,11 @@ pub struct AddViewParams {
 
 #[get("/views")]
 pub async fn get_view_count(app_state: Data<AppState>, query: Query<ViewParams>) -> impl Responder {
-    let ViewParams { name, label, accounted } = query.into_inner();
+    let ViewParams {
+        name,
+        label,
+        accounted,
+    } = query.into_inner();
     if name.is_empty() {
         return HttpResponse::BadRequest().finish();
     }
@@ -61,6 +65,10 @@ pub async fn get_view_count(app_state: Data<AppState>, query: Query<ViewParams>)
 pub async fn add_view(app_state: Data<AppState>, query: Query<AddViewParams>) -> impl Responder {
     const PIXEL: &str = include_str!("pixel.svg");
     const SVG_MIME: &str = "image/svg+xml";
+    const CACHE_CONTROL: (&str, &str) = (
+        "Cache-Control",
+        "max-age=0, no-cache, no-store, must-revalidate",
+    );
 
     let AddViewParams { name } = query.into_inner();
     if name.is_empty() {
@@ -68,5 +76,8 @@ pub async fn add_view(app_state: Data<AppState>, query: Query<AddViewParams>) ->
     }
 
     let _ = app_state.view_service.add_view(name).await;
-    HttpResponse::Ok().content_type(SVG_MIME).body(PIXEL)
+    HttpResponse::Ok()
+        .append_header(CACHE_CONTROL)
+        .content_type(SVG_MIME)
+        .body(PIXEL)
 }

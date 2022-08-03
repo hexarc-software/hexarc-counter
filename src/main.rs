@@ -1,5 +1,5 @@
-mod service;
 mod endpoint;
+mod service;
 
 use std::env;
 use actix_web::{App, HttpServer};
