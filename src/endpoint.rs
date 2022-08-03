@@ -9,6 +9,7 @@ pub struct Shield {
     schema_version: i32,
     label: String,
     message: String,
+    cache_seconds: Option<u32>
 }
 
 impl Shield {
@@ -17,6 +18,7 @@ impl Shield {
             schema_version: 1,
             label,
             message,
+            cache_seconds: Some(0u32)
         }
     }
 }
