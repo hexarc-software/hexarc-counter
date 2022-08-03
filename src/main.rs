@@ -11,7 +11,9 @@ async fn main() -> std::io::Result<()> {
         .parse()
         .expect("PORT must be a number");
 
-    HttpServer::new(|| {
+    let _database_url = env::var("DATABASE_URL").expect("DATABASE_URL expected");
+
+    HttpServer::new(move || {
         App::new()
             .service(endpoint::get_view_count)
             .service(endpoint::inc_view_count)

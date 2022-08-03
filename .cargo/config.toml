@@ -1,2 +1,3 @@
 [env]
 PORT = { value = "8080", force = true }
+DATABASE_URL = { value = "mongodb://admin:pass@localhost:27017", force = true }
