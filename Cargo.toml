@@ -8,3 +8,9 @@ authors = ["Max Koverdyaev <shadeglare@gmail.com>"]
 actix-web = "4.1.0"
 rand = "0.8.5"
 serde = { version = "1.0.140", features = ["derive"] }
+
+[profile.release]
+opt-level = "z"
+strip = true
+lto = true
+codegen-units = 1
