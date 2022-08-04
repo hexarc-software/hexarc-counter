@@ -1,13 +1,15 @@
 # Hexarc Counter
+
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://badges.mit-license.org)
 [![Custom badge](https://img.shields.io/endpoint?color=blue&url=https%3A%2F%2Fhexarc-counter.herokuapp.com%2Fviews%3Fname%3Dhexarc-counter%26label%3Dproject%2520views)](https://github.com/hexarc-software/hexarc-counter)
 <img src="https://hexarc-counter.herokuapp.com/tracker?name=hexarc-counter">
 
-This is a just-for-fun application for tracking views of web pages and displaying the collected stats using 
-custom badges from the [shields](https://shields.io/) project.
+<h3 align="center">
+    <img src=".images/tracker_logo.png"/>
+</h3>
 
 ## Idea
-Firstly this application was developed for tracking the views of a GitHub user profile page and displaying 
+Originally this application was developed for tracking the views of a GitHub user profile page and displaying 
 the view count via badges from the [shields](https://shields.io/) project. In general the tracker can be
 set up either in one or many location and the badge settings can be customized to convey a sensible message.
 
