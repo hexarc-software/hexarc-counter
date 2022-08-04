@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) Hexarc Technologies and Contributors
+Copyright (c) Hexarc Software and Contributors
 
 All rights reserved.
 

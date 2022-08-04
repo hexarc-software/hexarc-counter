@@ -35,4 +35,4 @@ Example how to collect and display the views of a [GitHub profile](https://githu
 You can use the demo server https://hexarc-counter.herokuapp.com/ for experiments.
 
 ## License
-MIT © [Hexarc Technologies and its contributors](https://github.com/hexarc-tech)
+MIT © [Hexarc Software and its contributors](https://github.com/hexarc-software)
