@@ -1,11 +1,11 @@
 # Hexarc Counter
 
 This is a just-for-fun application for tracking views of web pages and display the collected stats using 
-custom badges from the [shields]([https://shields.io/]) project.
+custom badges from the [shields](https://shields.io/) project.
 
 ## Idea
 Firstly this application was developed for tracking the views of a GitHub user profile page and display 
-the view count via badges from the [shields]([https://shields.io/]) project. In general the tracker can be
+the view count via badges from the [shields](https://shields.io/) project. In general the tracker can be
 set up in one or many location and the badge settings can be customized to convey a sensible message.
 
 ## Usage
