@@ -5,7 +5,9 @@
 <img src="https://hexarc-counter.herokuapp.com/tracker?name=hexarc-counter">
 
 <h3 align="center">
-    <img src=".images/tracker_logo.png"/>
+    <a href="https://github.com/hexarc-software/hexarc-counter">
+        <img src=".images/tracker_logo.png"/>
+    </a>
 </h3>
 
 ## Idea
