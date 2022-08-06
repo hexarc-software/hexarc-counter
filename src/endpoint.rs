@@ -3,6 +3,7 @@ use actix_web::web::{Data, Query};
 use serde::{Deserialize, Serialize};
 use crate::AppState;
 
+/// The `shields.io` custom endpoint contract.
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Shield {
@@ -34,6 +35,11 @@ pub struct AddViewParams {
     name: String,
 }
 
+/// Count the view events for a given unique tracker name.
+/// The response is compatible with the `shields.io` project.
+/// ```
+/// GET /views?name=NAME&label=LABEL
+/// ```
 #[get("/views")]
 pub async fn get_view_count(app_state: Data<AppState>, query: Query<ViewParams>) -> impl Responder {
     let ViewParams { name, label } = query.into_inner();
@@ -52,10 +58,17 @@ pub async fn get_view_count(app_state: Data<AppState>, query: Query<ViewParams>)
     }
 }
 
+/// Render a tracking pixel and register a view in the storage.
+/// ```
+/// GET /tracker?name=NAME
+/// ```
 #[get("/tracker")]
 pub async fn add_view(app_state: Data<AppState>, query: Query<AddViewParams>) -> impl Responder {
+    // Statically load the svg pixel image from the external file during compilation.
+    // No need for escaping and other funny stuff.
     const PIXEL: &str = include_str!("pixel.svg");
     const SVG_MIME: &str = "image/svg+xml";
+    // Disable caching to prevent GitHub or any other proxy to cache the rendered image.
     const CACHE_CONTROL: (&str, &str) = (
         "Cache-Control",
         "max-age=0, no-cache, no-store, must-revalidate",
