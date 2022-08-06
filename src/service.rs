@@ -20,7 +20,7 @@ pub struct ViewService {
 }
 
 impl ViewService {
-    /// Create a instance of the ViewService struct from a given db collection.
+    /// Create an instance of the ViewService struct from a given db collection.
     pub fn new(collection: Collection<View>) -> Self {
         Self { collection }
     }
