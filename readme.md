@@ -1,8 +1,8 @@
 # Hexarc Counter
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://badges.mit-license.org)
-[![Custom badge](https://img.shields.io/endpoint?color=blue&url=https%3A%2F%2Fhexarc-counter.herokuapp.com%2Fviews%3Fname%3Dhexarc-counter%26label%3Dproject%2520views)](https://github.com/hexarc-software/hexarc-counter)
-<img src="https://hexarc-counter.herokuapp.com/tracker?name=hexarc-counter">
+[![Custom badge](https://img.shields.io/endpoint?color=blue&url=https%3A%2F%2Fhexarc-counter.onrender.com%2Fviews%3Fname%3Dhexarc-counter%26label%3Dproject%2520views)](https://github.com/hexarc-software/hexarc-counter)
+<img src="https://hexarc-counter.onrender.com/tracker?name=hexarc-counter">
 
 <h3 align="center">
     <a href="https://github.com/hexarc-software/hexarc-counter">
@@ -32,7 +32,7 @@ If you need a custom label for your tracker stats url you can specify it via `CU
 
 ## Example
 Example how to collect and display the views of a [GitHub profile](https://github.com/shadeglare/shadeglare#readme).
-You can use the demo server https://hexarc-counter.herokuapp.com/ for experiments.
+You can use the demo server https://hexarc-counter.onrender.com/ for experiments.
 
 ## License
 MIT © [Hexarc Software and its contributors](https://github.com/hexarc-software)
