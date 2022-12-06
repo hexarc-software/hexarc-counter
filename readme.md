@@ -1,4 +1,4 @@
-# Hexarc Counter
+# GitHub Views Counter
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://badges.mit-license.org)
 [![Custom badge](https://img.shields.io/endpoint?color=blue&url=https%3A%2F%2Fhexarc-counter.onrender.com%2Fviews%3Fname%3Dhexarc-counter%26label%3Dproject%2520views)](https://github.com/hexarc-software/hexarc-counter)
