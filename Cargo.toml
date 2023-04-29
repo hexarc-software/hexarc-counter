@@ -6,9 +6,9 @@ authors = ["Max Koverdyaev <shadeglare@gmail.com>"]
 license = "MIT"
 
 [dependencies]
-actix-web = "4.3.0"
-mongodb = "2.3.1"
-serde = { version = "1.0.152", features = ["derive"] }
+actix-web = "4.3.1"
+mongodb = "2.4.0"
+serde = { version = "1.0.160", features = ["derive"] }
 
 [profile.release]
 opt-level = "z"
